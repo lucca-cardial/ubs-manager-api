@@ -35,6 +35,6 @@ class RegisterUserCommand implements IRequestCommandHandle
             'password' => bcrypt($request->input('password'))
         ]);
 
-        return $this->successResponse('Usuário registrado com sucesso! Por favor, efetue login');
+        return $user;
     }
 }

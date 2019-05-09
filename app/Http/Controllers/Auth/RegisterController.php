@@ -24,6 +24,7 @@ class RegisterController extends Controller {
      * @return \App\Traits\Responder|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function register(Request $request) {
-        return $this->registerCommand->handler($request);
+        $this->registerCommand->handler($request);
+        return $this->successResponse('Usuário registrado com sucesso! Por favor, efetue login');
     }
 }
