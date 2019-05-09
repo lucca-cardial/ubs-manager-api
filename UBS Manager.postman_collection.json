@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "872b9d35-1c25-4f85-81af-630714787aab",
+		"name": "UBS Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"luccascardial@gmail.com\",\n\t\"password\": \"secret\",\n\t\"grant_type\": \"password\",\n\t\"scope\": \"\",\n\t\"client_id\": \"{{client_id}}\",\n\t\"client_secret\": \"{{client_secret}}\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/oauth/token",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"luccascardial@gmail.com\",\n\t\"name\": \"Lucas Cardial\",\n\t\"password\": \"secret\",\n\t\"confirm_password\": \"secret\"\n}"
+						},
+						"url": {
+							"raw": "{{root_url}}/api/register",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UBS",
+			"item": [
+				{
+					"name": "Create New",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Unidade Santa Maria",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "Rua 15",
+									"type": "text"
+								},
+								{
+									"key": "street_number",
+									"value": "134",
+									"type": "text"
+								},
+								{
+									"key": "neighborhood",
+									"value": "Nova Araguaína",
+									"type": "text"
+								},
+								{
+									"key": "city_code",
+									"value": "1702109",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{root_url}}/v1/ubs",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"v1",
+								"ubs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show From City",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/v1/ubs/city/1702109",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"v1",
+								"ubs",
+								"city",
+								"1702109"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/v1/ubs/1",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"v1",
+								"ubs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Create Doctor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "crm",
+									"value": "TO-012311",
+									"type": "text"
+								},
+								{
+									"key": "ubs",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "speciality",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "frs@example.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Tonia",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234567",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "1234567",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{root_url}}/v1/doctors",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"v1",
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Doctor By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/v1/doctors/6",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"v1",
+								"doctors",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Doctors By UBS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/v1/doctors/ubs/1",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"v1",
+								"doctors",
+								"ubs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Specialities",
+			"item": [
+				{
+					"name": "Create Speciality",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/v1/specialities",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"v1",
+								"specialities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIst Specialities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/v1/specialities",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"v1",
+								"specialities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Specialities by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{root_url}}/v1/specialities/1",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"v1",
+								"specialities",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjEyMmU5ZjRhNTNjYmU0Mzk1ODRlMjMwNDJlYTBjNjMyN2U3ZWRiYzQ0OGU5YjA3ZWVlZjcyNzhjZjg1ZDFhMzk1OTJkMDA3ZTZkNDVhNmRjIn0.eyJhdWQiOiI0IiwianRpIjoiMTIyZTlmNGE1M2NiZTQzOTU4NGUyMzA0MmVhMGM2MzI3ZTdlZGJjNDQ4ZTliMDdlZWVmNzI3OGNmODVkMWEzOTU5MmQwMDdlNmQ0NWE2ZGMiLCJpYXQiOjE1NTczNzg1OTIsIm5iZiI6MTU1NzM3ODU5MiwiZXhwIjoxNTg5MDAwOTkyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.XwDWs8h-qRpCE83WCHmFsCrCtH6uzHMOChbUdCUGE_Rlw5LRQ0gE63ohaPAFaFOq2lVy_18gps24If2ICMQZFBSYgYBjZOtA2V7MlB-lL0cgq56qMeP59LMppLZ6BupPHH7UfLBGHXd4Hg0lfu22tiKSzeXaD_2TgEh5kU2dq8ZeAbVvlQqVNBVj08zImy-ELskFheMdgfZnZdZvMhVZIxYybXbcAWOC3-IpCpPEqiKpraBxY-_68zs5eBBt9md7PkAkJ-o55SjlGkk9kaE5NLB0cjxHhu1HCYAf7YFKRg1wa_8hRBuOe6NBikkLGbRPORXGRZlBplSh-QnvivTiaZZn8JpYTGQw7W-SOIi28xG2xOQQAdmBcwYMC94iUGCyiNWgBIjG0XvE8lepjpeLbtRCrYrEm0vxINI5lFHDYtx4OrAQBj6y2mgqMq7oxQiS12aRxYWq7FJxwHWUC1rrw_ZaY6pcsjxa1lfLTeu94JUMnp4pawn8unnx05ni3GO1SvcsrkB81hIzoOZOrvu_wuNbwYWDCFQymfy3MXCXngv9DAzMO0XWho_VKJxov7k_qkk6j-i31ZH0YaFgZUJ3M3G-Udr_Ob6YuVnRa1PbU-jx23_dL_CFw7MW0U78go4PBQDmTUMjgUkR58bNXzOzRxtzEKDpDZruRItXt7FcBzE",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "dcc60de8-94c1-4b8f-a6cf-e6620b238320",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "59f5c6a0-99cb-410a-ae7b-10389cdae11f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "14e2d952-8fb8-4735-b0c1-e544ab7df20f",
+			"key": "root_url",
+			"value": "127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"id": "bb991632-825f-4c43-9c2e-b4bab527a621",
+			"key": "client_id",
+			"value": "4",
+			"type": "string"
+		},
+		{
+			"id": "5299188d-5c88-4e3f-917d-8f4781c9aa02",
+			"key": "client_secret",
+			"value": "3jvSBNvja522008Yarc201HJPwosK6Lxd2JIHfuc",
+			"type": "string"
+		}
+	]
+}
