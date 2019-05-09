@@ -42,10 +42,7 @@ class RegisterUBSCommand implements IRequestCommandHandle
             'lng' => $request->input('lng')
         ]);
 
-        return $this->successResponse([
-            'success' => 'UBS cadastrada com sucesso!',
-            $ubs
-        ], Response::HTTP_CREATED);
+        return $ubs;
 
     }
 }

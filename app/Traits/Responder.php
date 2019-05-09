@@ -26,7 +26,7 @@ trait Responder
      * @param $code
      * @return \Illuminate\Http\JsonResponse
      */
-    public function errorResponse($message, $code) {
+    public function errorResponse($message, $code = Response::HTTP_INTERNAL_SERVER_ERROR) {
         return response()->json(['error' => $message, 'code' => $code], $code);
     }
 

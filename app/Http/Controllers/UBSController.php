@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\Commands\UBS\RegisterUBSCommand;
 use App\Models\UBS;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UBSController extends Controller
 {
@@ -40,6 +41,8 @@ class UBSController extends Controller
      * @return \App\Traits\Responder|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function store(Request $request) {
-        return $this->registerCommand->handler($request);
+        $this->registerCommand->handler($request);
+        return $this->successResponse('A UBS foi criada com sucesso',
+            Response::HTTP_CREATED);
     }
 }
