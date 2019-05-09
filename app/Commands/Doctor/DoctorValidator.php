@@ -18,8 +18,7 @@ class DoctorValidator extends ValidatorAbstract
         return [
             'crm' => 'required|string|unique:doctors,crm',
             'ubs' => 'required|exists:ubs,id',
-            'speciality' => 'required|in:1,2,3'
-//            'speciality' => 'required|exists:specialities,id'
+            'speciality' => 'required|exists:specialities,id'
         ];
     }
 }
